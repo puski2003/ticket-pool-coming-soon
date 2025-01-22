@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
-import { Inter,Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import {twMerge} from "tailwind-merge";
+import { twMerge } from "tailwind-merge";
 
+// Specify subsets for fonts
+const inter = Inter({
+  subsets: ["latin"], // Define subsets to avoid build errors
+  preload: true, // Preloading enabled (optional but good practice)
+});
 
-const inter = Inter();
+const poppins = Poppins({
+  subsets: ["latin"], // Define subsets
+  weight: ["400", "600"], // Specify font weights (optional, based on your design needs)
+  preload: true, // Preloading enabled
+});
 
 export const metadata: Metadata = {
   title: "Ticket Pool",
@@ -18,8 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="relative">
-      <body className={twMerge(inter.className, "antialiased ")}>
-      
+      <body className={twMerge(inter.className, "antialiased")}>
         {children}
       </body>
     </html>
