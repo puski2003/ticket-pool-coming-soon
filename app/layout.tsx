@@ -18,6 +18,11 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Ticket Pool",
   description: "Buy your tickets here ..",
+  icons:{
+    icon:"./logo.svg",
+    apple:"./logo.svg",
+
+  }
 };
 
 export default function RootLayout({
